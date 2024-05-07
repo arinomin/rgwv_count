@@ -45,10 +45,9 @@
         <h2>Rogue waveのShowcaseまで</h2>
         <p id="countdown"></p>
     </div>
-    <div id="link">River'日本大使へのアクセスはこちら</div>
+    <div id="link">River'新参のカスへのアクセスはこちら</div>
 
     <script>
-        // カウントダウンの設定
         const countdownDate = new Date('July 28, 2024 00:00:00').getTime();
 
         const countdownTimer = setInterval(function() {
@@ -62,14 +61,12 @@
 
             document.getElementById('countdown').innerHTML = `${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
 
-            // カウントダウンが終了したら、テキストを変更
             if (distance < 0) {
                 clearInterval(countdownTimer);
-                document.getElementById('countdown').innerHTML = 'イベントが終了しました';
+                document.getElementById('countdown').innerHTML = '今日はイベント当日です！';
             }
         }, 10);
 
-        // リンクをクリックしたときの処理
         document.getElementById('link').addEventListener('click', function() {
             window.location.href = 'https://twitter.com/TakeaSip893';
         });
