@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>カウントダウンタイマー</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282c34;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+  }
+  h1 {
+    font-size: 40px;
+    color: #61dafb;
+  }
+  p {
+    font-size: 30px;
+  }
+  #timer {
+    font-size: 40px;
+    margin-top: 20px;
+  }
+</style>
+<script>
+// 目標日時を設定
+const countDownDate = new Date("July 28, 2024 00:00:00").getTime();
+
+// 0.01秒ごとに更新する関数をセット
+const x = setInterval(function() {
+
+  // 現在の日時を取得
+  const now = new Date().getTime();
+
+  // 目標日時までの残り時間を計算
+  const distance = countDownDate - now;
+
+  // 日数、時間、分、秒を計算
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = ((distance % (1000 * 60)) / 1000).toFixed(2); // 小数点以下4桁まで表示
+
+  // 結果をid="timer"の要素に表示
+  document.getElementById("timer").innerHTML = days + "日" + hours + "時間"
+  + minutes + "分" + seconds + "秒";
+
+  // 時間が0になったら停止
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "期限が切れました";
+  }
+}, 10); // 10ミリ秒ごとに更新
+</script>
+</head>
+<body>
+
+<h1>破天4日目</h1>
+<h2>Rogue waveのShowcaseの日まで</h2>
+<p id="timer"></p>
+
+</body>
+</html>
