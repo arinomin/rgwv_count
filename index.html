@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<title>カウントダウンタイマー</title>
-<style>
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #282c34;
-    color: white;
-    text-align: center;
-    padding-top: 50px;
-  }
-  h1 {
-    font-size: 23px;
-    color: #61dafb;
-  }
-  h2{
-    font-size: 20px;
-  }
-  p {
-    font-size: 30px;
-  }
-  #timer {
-    font-size: 30px;
-    margin-top: 20px;
-  }
-</style>
-<script>
-// 目標日時を設定
-const countDownDate = new Date("July 28, 2024 00:00:00").getTime();
-
-// 0.01秒ごとに更新する関数をセット
-const x = setInterval(function() {
-
-  // 現在の日時を取得
-  const now = new Date().getTime();
-
-  // 目標日時までの残り時間を計算
-  const distance = countDownDate - now;
-
-  // 日数、時間、分、秒を計算
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = ((distance % (1000 * 60)) / 1000).toFixed(2); // 小数点以下4桁まで表示
-
-  document.getElementById("timer").innerHTML = days + "日" + hours + "時間"
-  + minutes + "分" + seconds + "秒";
-
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("timer").innerHTML = "期限が切れました";
-  }
-}, 10);
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ライブイベントカウントダウン</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .countdown {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .countdown h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        .countdown p {
+            font-size: 2em;
+            margin: 0;
+        }
+        #link {
+            color: #0099ff;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 200px;
+        }
+        h2{
+            font-size: 30px;
+        }
+    </style>
 </head>
 <body>
+    <div class="countdown">
+        <h1>7月28日　破天4日目</h1>
+        <h2>Rogue waveのShowcaseまで</h2>
+        <p id="countdown"></p>
+    </div>
+    <div id="link">River'日本大使へのアクセスはこちら</div>
 
-<h1>#他に数えてるやついねえだろ</h1>
-<h2>Rogue waveのShowcaseの日まで</h2>
-<p id="timer"></p>
+    <script>
+        // カウントダウンの設定
+        const countdownDate = new Date('July 28, 2024 00:00:00').getTime();
 
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = ((distance % (1000 * 60)) / 1000).toFixed(2);
+
+            document.getElementById('countdown').innerHTML = `${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+
+            // カウントダウンが終了したら、テキストを変更
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('countdown').innerHTML = 'イベントが終了しました';
+            }
+        }, 10);
+
+        // リンクをクリックしたときの処理
+        document.getElementById('link').addEventListener('click', function() {
+            window.location.href = 'https://twitter.com/TakeaSip893';
+        });
+    </script>
 </body>
 </html>
