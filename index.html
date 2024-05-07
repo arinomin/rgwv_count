@@ -13,14 +13,14 @@
     padding-top: 50px;
   }
   h1 {
-    font-size: 40px;
+    font-size: 25px;
     color: #61dafb;
   }
   p {
     font-size: 30px;
   }
   #timer {
-    font-size: 40px;
+    font-size: 35px;
     margin-top: 20px;
   }
 </style>
@@ -43,21 +43,19 @@ const x = setInterval(function() {
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = ((distance % (1000 * 60)) / 1000).toFixed(2); // 小数点以下4桁まで表示
 
-  // 結果をid="timer"の要素に表示
   document.getElementById("timer").innerHTML = days + "日" + hours + "時間"
   + minutes + "分" + seconds + "秒";
 
-  // 時間が0になったら停止
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("timer").innerHTML = "期限が切れました";
   }
-}, 10); // 10ミリ秒ごとに更新
+}, 10);
 </script>
 </head>
 <body>
 
-<h1>破天4日目</h1>
+<h1>#他に数えてるやついねえだろ</h1>
 <h2>Rogue waveのShowcaseの日まで</h2>
 <p id="timer"></p>
 
