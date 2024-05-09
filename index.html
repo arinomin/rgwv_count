@@ -6,49 +6,69 @@
     <title>RogueWaveカウントダウン</title>
     <style>
         body {
-            background-color: #1e1e1e;
+            background-color: #000000;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        #bg-image {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+            filter: brightness(60%);
         }
         .countdown {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
         .countdown h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0px 0px 10px #ffffff;
+        }
+        .countdown h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
         }
         .countdown p {
-            font-size: 2em;
+            font-size: 2.0em;
             margin: 0;
+            animation: countdownAnimation 1s infinite alternate;
         }
-        #link {
-            color: #0099ff;
+        @keyframes countdownAnimation {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.1);
+            }
+        }
+        #link_a, #link {
+            color: #ffffff;
             text-decoration: underline;
             cursor: pointer;
             margin-top: 20px;
+            font-size: 1.2em;
         }
-        #link_a {
-            color: #0099ff;
-            text-decoration: underline;
-            cursor: pointer;
-            margin-top: 100px;
-        }
-        h2{
-            font-size: 25px;
+        #link_a:hover, #link:hover {
+            color: #ffcc00;
         }
     </style>
 </head>
 <body>
+    <img id="bg-image" src="https://pbs.twimg.com/media/GM4-ECFbUAAtrtT?format=jpg&name=small" alt="Background Image">
     <div class="countdown">
-        <h1>7月28日　破天4日目</h1>
-        <h2>Rogue waveのShowcaseまで</h2>
+        <h1><span style="font-family: 'Segoe Script', sans-serif;">R</span>ogue <span style="font-family: 'Segoe Script', sans-serif;">W</span>ave</h1>
+        <h2>7月28日まで</h2>
         <p id="countdown"></p>
     </div>
     <div id="link_a">River'新参のカスへのアクセスはこちら</div>
@@ -76,8 +96,9 @@
         document.getElementById('link').addEventListener('click', function() {
             window.location.href = 'https://twitter.com/TakeaSip893';
         });
-            document.getElementById('link_a').addEventListener('click', function() {
-            window.location.href = 'https://twitter.com/arinominn';});
+        document.getElementById('link_a').addEventListener('click', function() {
+            window.location.href = 'https://twitter.com/arinominn';
+        });
     </script>
 </body>
 </html>
