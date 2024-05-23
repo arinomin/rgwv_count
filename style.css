@@ -7,7 +7,6 @@ body {
     align-items: center;
     flex-direction: column;
     user-select: none;
-    touch-action: manipulation;
     height: 100vh;
     margin: 0;
     overflow: hidden;
@@ -52,6 +51,7 @@ button {
   width: 165px;
   height: 62px;
   cursor: pointer;
+  touch-action: manipulation;
   color: #fff;
   font-size: 17px;
   border-radius: 1rem;
