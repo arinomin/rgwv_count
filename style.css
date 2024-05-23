@@ -47,6 +47,7 @@ body {
 }
 
 button {
+  touch-action: manipulation;
   width: 165px;
   height: 62px;
   cursor: pointer;
