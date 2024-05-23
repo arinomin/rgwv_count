@@ -1,3 +1,6 @@
+html{
+    user-select: none;
+}
 body {
     background-color: #000000;
     color: #ffffff;
@@ -51,6 +54,7 @@ button {
   width: 165px;
   height: 62px;
   cursor: pointer;
+  user-select: none;
   touch-action: manipulation;
   color: #fff;
   font-size: 17px;
